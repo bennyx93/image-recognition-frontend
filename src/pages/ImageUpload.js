@@ -14,6 +14,8 @@ const ImageUpload = () => {
         e.preventDefault();
         var data = new FormData();
         var imagedata = document.querySelector('input[type="file"]').files[0];
+        // If there is no local file submitted, then return a blank file object
+        // This is necessary for the POST request
         if (imagedata) {
             data.append("image-file", imagedata);
         } else {
@@ -31,6 +33,7 @@ const ImageUpload = () => {
                 body: data,
             });
             let resJson = await res.json();
+            console.log(resJson);
             if (res.status === 200) {
                 setName("");
                 setUrl("");

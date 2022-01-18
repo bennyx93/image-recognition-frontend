@@ -7,6 +7,8 @@ const HomePage = () => {
     const [imagesInfo, setImagesInfo] = useState([]);
     let [queryString, setQueryString] = useState("");
 
+    // Use Callback since it prevents an infinite loop
+    // it ensures that the function is only re-created if its dependencies changed
     const fetchData = useCallback(() => {
         const queryText = queryString.length > 0 ? `?objects="${queryString}"` : "";
 
