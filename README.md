@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Docker containers
+
+docker build -t demo:image-recognizer .
+
+docker run \
+ -it \
+ --rm \
+ -v ${PWD}:/app \
+ -v /app/node_modules \
+ -p 3000:3000 \
+ -e CHOKIDAR_USEPOLLING=true \
+ demo:image-recognizer
+
 ## Available Scripts
 
 In the project directory, you can run:
